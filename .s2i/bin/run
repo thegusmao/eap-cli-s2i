@@ -1,9 +1,10 @@
 #!/bin/bash
 
-echo "Antes do assemble"
+echo "Antes do run"
 
-/usr/local/s2i/assemble
-rc=$?
+# /usr/local/s2i/assemble
+# rc=$?
+
 LOCAL_SOURCE_DIR=/tmp/src
 
 echo "Executando scripts do EAP."
@@ -17,6 +18,9 @@ bash $JBOSS_HOME/bin/jboss_cli.sh \
 
 bash $JBOSS_HOME/bin/jboss_cli.sh \
     --connect \
-    --command=:shutdown
+    --command=shutdown
 
-echo "Depois do assemble"
+echo "Depois do run"
+
+exec $JBOSS_HOME/bin/openshift-launch.sh
+

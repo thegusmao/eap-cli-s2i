@@ -10,6 +10,6 @@ echo "Adicionando Propriedades"
 /system-property=aplicacao.versao:add(value=${APLICACAO_VERSAO})
 /system-property=aplicacao.teste:add(value=${APLICACAO_TESTE})
 
-:shutdown
+# :shutdown
 
 echo "Propriedades Adicionadas"
