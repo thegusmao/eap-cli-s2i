@@ -1,5 +1,7 @@
 #!/bin/bash
 
+/usr/local/s2i/run
+
 echo "Antes do run"
 
 # /usr/local/s2i/assemble
@@ -12,9 +14,7 @@ echo "Executando scripts do EAP."
 #$JBOSS_HOME/bin/standalone.sh -c standalone-openshift.xml --admin-only </dev/null &>/dev/null &
 
 cd $JBOSS_HOME/bin 
-./jboss-cli.sh --properties=$CONFIGURATION_DIR/extensions.properties --file=$CONFIGURATION_DIR/extensions.cli
+./jboss-cli.sh -c --properties=$CONFIGURATION_DIR/extensions.properties --file=$CONFIGURATION_DIR/extensions.cli
 
 echo "Depois do run"
-
-/usr/local/s2i/run
 

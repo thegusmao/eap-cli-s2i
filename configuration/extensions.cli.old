@@ -1,6 +1,9 @@
 echo "Inicio da configuração."
 
-set JBOSS_HOME=${JBOSS_HOME}
+#
+# Iniciando server em modo embed
+#
+embed-server --std-out=echo --server-config=standalone-openshift.xml --timeout=30
 
 #
 # Adicionando Propriedades
@@ -10,6 +13,9 @@ echo "Adicionando Propriedades"
 /system-property=aplicacao.versao:add(value=${APLICACAO_VERSAO})
 /system-property=aplicacao.teste:add(value=${APLICACAO_TESTE})
 
-# :shutdown
+#
+# Desligando embed server
+#
+stop-embedded-server
 
 echo "Propriedades Adicionadas"
