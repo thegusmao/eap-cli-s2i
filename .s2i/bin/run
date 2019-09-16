@@ -11,14 +11,8 @@ echo "Executando scripts do EAP."
 
 #$JBOSS_HOME/bin/standalone.sh -c standalone-openshift.xml --admin-only </dev/null &>/dev/null &
 
-$JBOSS_HOME/bin/jboss-cli.sh \
-#    --connect \
-    --properties=$CONFIGURATION_DIR/extensions.properties \
-    --file=$CONFIGURATION_DIR/extensions.cli
-
-#$JBOSS_HOME/bin/jboss-cli.sh \
-#    --connect \
-#    --command=shutdown
+cd $JBOSS_HOME/bin 
+./jboss-cli.sh --properties=$CONFIGURATION_DIR/extensions.properties --file=$CONFIGURATION_DIR/extensions.cli
 
 echo "Depois do run"
 
