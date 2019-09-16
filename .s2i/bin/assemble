@@ -1,0 +1,22 @@
+#!/bin/bash
+
+echo "Antes do assemble"
+
+/usr/local/s2i/assemble
+rc=$?
+LOCAL_SOURCE_DIR=/tmp/src
+
+echo "Executando scripts do EAP."
+
+bash $JBOSS_HOME/bin/standalone.sh -c standalone-openshift.xml --admin-only </dev/null &>/dev/null &
+
+bash $JBOSS_HOME/bin/jboss_cli.sh \
+    --connect \
+    --properties=$LOCAL_SOURCE_DIR/configuration/extensions.properties \
+    --file=$LOCAL_SOURCE_DIR/configuration/extensions.cli
+
+bash $JBOSS_HOME/bin/jboss_cli.sh \
+    --connect \
+    --command=:shutdown
+
+echo "Depois do assemble"

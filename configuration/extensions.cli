@@ -1,0 +1,15 @@
+echo "Inicio da configuração."
+
+set JBOSS_HOME=${JBOSS_HOME}
+
+#
+# Adicionando Propriedades
+#
+echo "Adicionando Propriedades"
+/system-property=aplicacao.nome:add(value=${APLICACAO_NOME})
+/system-property=aplicacao.versao:add(value=${APLICACAO_VERSAO})
+/system-property=aplicacao.teste:add(value=${APLICACAO_TESTE})
+
+:shutdown
+
+echo "Propriedades Adicionadas"
