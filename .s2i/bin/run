@@ -9,16 +9,16 @@ CONFIGURATION_DIR=$JBOSS_HOME/standalone/configuration
 
 echo "Executando scripts do EAP."
 
-$JBOSS_HOME/bin/standalone.sh -c standalone-openshift.xml --admin-only </dev/null &>/dev/null &
+#$JBOSS_HOME/bin/standalone.sh -c standalone-openshift.xml --admin-only </dev/null &>/dev/null &
 
-timeout 30 $JBOSS_HOME/bin/jboss-cli.sh \
-    --connect \
+$JBOSS_HOME/bin/jboss-cli.sh \
+#    --connect \
     --properties=$CONFIGURATION_DIR/extensions.properties \
     --file=$CONFIGURATION_DIR/extensions.cli
 
-timeout 20 $JBOSS_HOME/bin/jboss-cli.sh \
-    --connect \
-    --command=shutdown
+#$JBOSS_HOME/bin/jboss-cli.sh \
+#    --connect \
+#    --command=shutdown
 
 echo "Depois do run"
 
