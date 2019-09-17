@@ -10,5 +10,6 @@ echo "Copiando pasta extensions para o EAP"
 
 #mkdir -p $JBOSS_HOME/extensions
 cp -r $LOCAL_DIR/extensions $JBOSS_HOME
+chmod 774 $JBOSS_HOME/extensions/*.sh
 
 echo "Depois do assemble"
