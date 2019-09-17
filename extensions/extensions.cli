@@ -1,6 +1,6 @@
 echo "Inicio da configuracao"
 
-source $JBOSS_HOME/extensions/extensions.properties
+source ${JBOSS_HOME}/extensions/extensions.properties
 #
 # Iniciando server em modo embed
 #
