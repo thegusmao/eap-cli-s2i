@@ -17,4 +17,3 @@ cd $JBOSS_HOME/bin
 ./jboss-cli.sh -c --properties=$CONFIGURATION_DIR/extensions.properties --file=$CONFIGURATION_DIR/extensions.cli
 
 echo "Depois do run"
-

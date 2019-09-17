@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "Antes do assemble"
+/usr/local/s2i/assemble
+rc=$?
+
+echo "Copiando pasta extensions para o EAP"
+
+cp extensions $JBOSS_HOME
+
+echo "Depois do assemble"
