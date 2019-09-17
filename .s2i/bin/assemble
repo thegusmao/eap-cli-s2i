@@ -6,7 +6,7 @@ rc=$?
 
 echo "Copiando pasta extensions para o EAP"
 
-mkdir -p $JBOSS_HOME/extensions
+#mkdir -p $JBOSS_HOME/extensions
 cp -r extensions $JBOSS_HOME
 
 echo "Depois do assemble"
