@@ -9,9 +9,9 @@ embed-server --std-out=echo --server-config=standalone-openshift.xml --timeout=3
 # Adicionando Propriedades
 #
 echo "Adicionando Propriedades"
-/system-property=aplicacao.nome:add(value=${APLICACAO_NOME})
-/system-property=aplicacao.versao:add(value=${APLICACAO_VERSAO})
-/system-property=aplicacao.teste:add(value=${APLICACAO_TESTE})
+/system-property=aplicacao.nome:add(value="teste")
+/system-property=aplicacao.versao:add(value="1.0")
+/system-property=aplicacao.teste:add(value="Isso eh um teste")
 
 #
 # Desligando embed server
