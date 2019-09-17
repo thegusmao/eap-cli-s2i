@@ -6,6 +6,6 @@ rc=$?
 
 echo "Copiando pasta extensions para o EAP"
 
-cp extensions $JBOSS_HOME
+cp -r extensions $JBOSS_HOME
 
 echo "Depois do assemble"
