@@ -1,6 +1,8 @@
 echo "Inicio da configuracao"
 
-source ${JBOSS_HOME}/extensions/extensions.properties
+set nome=${APLICACAO_NOME}
+set versao=${APLICACAO_VERSAO}
+set teste=${APLICACAO_TESTE}
 #
 # Iniciando server em modo embed
 #
@@ -10,9 +12,9 @@ embed-server --std-out=echo --server-config=standalone-openshift.xml --timeout=3
 # Adicionando Propriedades
 #
 echo "Adicionando Propriedades"
-/system-property=aplicacao.nome:add(value=${APLICACAO_NOME})
-/system-property=aplicacao.versao:add(value=${APLICACAO_VERSAO})
-/system-property=aplicacao.teste:add(value=${APLICACAO_TESTE})
+/system-property=aplicacao.nome:add(value=$nome)
+/system-property=aplicacao.versao:add(value=$versao)
+/system-property=aplicacao.teste:add(value=$teste)
 
 #
 # Desligando embed server
