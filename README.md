@@ -32,7 +32,7 @@ Onde os arquivos `extensions.cli` contém os comandos cli e o `extensions.proper
 Executar o comando
 
 ``` sh
-oc create configmap extensions --from-file extensions/postconfigure.sh --from-file extensions/extensions.cli --from-file extensions/postconfigure.sh
+oc create configmap extensions --from-file extensions/postconfigure.sh --from-file extensions/extensions.cli --from-file extensions/extensions.properties
 ```
 
 Adicionar o ConfigMap como volume no Deployment
@@ -44,5 +44,5 @@ oc set volume dc/<DEPLOYMENT> --add -m <JBOSS_HOME>/extensions --type configmap 
 Alterar as permissões do mount do configmap para 774
 
 ``` sh
-oc patch dc/<DEPLOYMENT> -p '{ "spec": { "template": { "spec": { "volumes": [{ "configMap": { "defaultMode": 0774, "name": "extensions" }, "name": "extensions" }]}}}}'
+oc patch dc/<DEPLOYMENT> --type json -p '[{ "op": "replace", "path": "/spec/template/spec/volumes/0/configMap/defaultMode", "value": 0774 }]'
 ```
